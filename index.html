@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lammm Foodie</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        overflow-x: hidden;
+        overscroll-behavior-y: auto;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .modal-class::-webkit-scrollbar {
+        display: none;
+      }
+      .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+      }
+      .content {
+        margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-gray-800 text-white p-4 fixed-header">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Lammm Foodie</h1>
+        <button id="hamburger-button" class="block md:hidden">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+        <nav id="nav-links" class="hidden md:flex space-x-4">
+          <a href="#home" class="hover:underline">Home</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#menu" class="hover:underline">Menu</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-700">
+        <a href="#home" class="block px-4 py-2">Home</a>
+        <a href="#about" class="block px-4 py-2">About</a>
+        <a href="#menu" class="block px-4 py-2">Menu</a>
+        <a href="#contact" class="block px-4 py-2">Contact</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="home" class="bg-white py-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-4">Welcome to My Website!</h2>
+          <p class="text-xl mb-8">Delicious meals and recipes await you!</p>
+          <div
+            id="slider"
+            class="relative overflow-hidden max-w-full h-96 mx-auto rounded-lg"
+          >
+            <div
+              id="slider-inner"
+              class="whitespace-nowrap transition-transform duration-500"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="bg-cover bg-center bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-4">About Us</h2>
+          <div class="flex flex-col md:flex-row justify-center items-center">
+            <div class="w-full md:w-1/2">
+              <img
+                src="chef.png"
+                alt="About Us"
+                class="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto shadow-lg mb-4"
+              />
+              <p class="text-lg mt-10">
+                Welcome to Lammm Foodie! We offer a diverse collection of
+                recipes and easy-to-follow cooking tutorials, helping you create
+                delicious meals from the comfort of your home. Whether you're a
+                beginner or an experienced chef, our step-by-step guides and
+                tips make cooking enjoyable and accessible. Join our community
+                and explore the joy of cooking with Lammm Foodie. Happy cooking!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="bg-white py-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-4">Our Menu</h2>
+          <div
+            id="menu-list"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          ></div>
+        </div>
+      </section>
+
+      <section id="search" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-4">Search Menu</h2>
+          <p class="text-xl">search for recipes that you want to cook!</p>
+          <div class="mb-8 mt-4">
+            <input
+              id="search-input"
+              type="text"
+              class="p-2 border border-gray-400 rounded"
+              placeholder="Search for a meal..."
+            />
+            <button
+              id="search-button"
+              class="p-2 bg-blue-600 text-white rounded"
+            >
+              Search
+            </button>
+          </div>
+          <div
+            id="search-results"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          ></div>
+        </div>
+      </section>
+      <section id="faq" class="bg-white py-20">
+        <div class="container mx-auto">
+          <h2 class="text-4xl font-bold mb-4 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div class="max-w-4xl mx-auto">
+            <div class="faq-item border-b border-gray-200 py-4">
+              <button
+                class="faq-question w-full text-left font-semibold text-lg"
+              >
+                What kind of recipes do you offer?
+              </button>
+              <div class="faq-answer hidden mt-2">
+                <p>
+                  We offer a wide variety of recipes, including appetizers, main
+                  courses, desserts, and beverages, catering to different
+                  dietary preferences.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item border-b border-gray-200 py-4">
+              <button
+                class="faq-question w-full text-left font-semibold text-lg"
+              >
+                Are the recipes easy to follow?
+              </button>
+              <div class="faq-answer hidden mt-2">
+                <p>
+                  Yes, our recipes are designed to be user-friendly, with
+                  step-by-step instructions and tips to ensure successful
+                  cooking experiences.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item border-b border-gray-200 py-4">
+              <button
+                class="faq-question w-full text-left font-semibold text-lg"
+              >
+                Do you provide nutritional information for the recipes?
+              </button>
+              <div class="faq-answer hidden mt-2">
+                <p>
+                  Yes, each recipe includes detailed nutritional information to
+                  help you make informed choices about your meals.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item border-b border-gray-200 py-4">
+              <button
+                class="faq-question w-full text-left font-semibold text-lg"
+              >
+                Can I find video tutorials on your website?
+              </button>
+              <div class="faq-answer hidden mt-2">
+                <p>
+                  Yes, we have a collection of video tutorials that demonstrate
+                  how to prepare our recipes, making it easier for you to follow
+                  along.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-8">Contact Us</h2>
+          <div class="max-w-2xl mx-auto">
+            <form class="space-y-4">
+              <div>
+                <label
+                  for="name"
+                  class="block text-left text-lg font-medium text-gray-700"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-left text-lg font-medium text-gray-700"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-left text-lg font-medium text-gray-700"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+                  rows="4"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-200"
+              >
+                Send Message
+              </button>
+            </form>
+            <div class="mt-8 text-lg">
+              <p><strong>Phone:</strong> +666 999 777 0</p>
+              <p><strong>Email:</strong> info@restaurant.com</p>
+              <p><strong>Address:</strong> 123 Foodie Lane, Flavor Town</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-10">
+      <div class="container mx-auto text-center md:text-left">
+        <div class="flex flex-col md:flex-row md:justify-between">
+          <div class="mb-6 md:mb-0">
+            <h1 class="text-2xl font-bold">Lammm Foodie</h1>
+            <p class="mt-2">Delicious meals and recipes await you!</p>
+            <div class="mt-4">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                class="text-white mx-2 hover:text-gray-400"
+              >
+                <svg
+                  class="w-6 h-6 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.12 8.44 9.88v-6.99H7.89v-2.89h2.55V9.83c0-2.52 1.49-3.92 3.78-3.92 1.1 0 2.25.2 2.25.2v2.46h-1.27c-1.26 0-1.66.79-1.66 1.6v1.92h2.78l-.44 2.89h-2.34V21.88C18.34 21.12 22 17 22 12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                class="text-white mx-2 hover:text-gray-400"
+              >
+                <svg
+                  class="w-6 h-6 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.44 4.56c-.81.36-1.69.61-2.61.72a4.51 4.51 0 001.98-2.48c-.88.53-1.86.91-2.9 1.12a4.49 4.49 0 00-7.64 4.1c-3.73-.19-7.03-1.97-9.24-4.66-.39.67-.61 1.45-.61 2.28 0 1.57.8 2.95 2.03 3.76-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.04 3.63 4.45-.38.1-.78.15-1.19.15-.29 0-.57-.03-.84-.08.57 1.78 2.22 3.08 4.18 3.11a9.02 9.02 0 01-5.58 1.92c-.36 0-.72-.02-1.07-.06a12.73 12.73 0 006.88 2.01c8.26 0 12.77-6.84 12.77-12.76 0-.19 0-.38-.01-.57.88-.64 1.63-1.45 2.23-2.36z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                class="text-white mx-2 hover:text-gray-400"
+              >
+                <svg
+                  class="w-6 h-6 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.16c3.2 0 3.584.012 4.849.07 1.17.054 1.96.24 2.415.406a4.924 4.924 0 011.704 1.11c.491.492.871 1.075 1.11 1.704.167.455.352 1.245.406 2.415.058 1.265.07 1.649.07 4.849s-.012 3.584-.07 4.849c-.054 1.17-.24 1.96-.406 2.415a4.924 4.924 0 01-1.11 1.704c-.492.491-1.075.871-1.704 1.11-.455.167-1.245.352-2.415.406-1.265.058-1.649.07-4.849.07s-3.584-.012-4.849-.07c-1.17-.054-1.96-.24-2.415-.406a4.924 4.924 0 01-1.704-1.11c-.491-.492-.871-1.075-1.11-1.704-.167-.455-.352-1.245-.406-2.415-.058-1.265-.07-1.649-.07-4.849s.012-3.584.07-4.849c.054-1.17.24-1.96.406-2.415a4.924 4.924 0 011.11-1.704c.492-.491 1.075-.871 1.704-1.11.455-.167 1.245-.352 2.415-.406C8.416 2.172 8.8 2.16 12 2.16zm0-2.16c-3.24 0-3.667.014-4.947.072-1.28.058-2.165.267-2.926.57a6.934 6.934 0 00-2.506 1.645A6.934 6.934 0 00.648 3.787c-.304.761-.513 1.646-.57 2.926C.014 8.028 0 8.46 0 12s.014 3.667.072 4.947c.058 1.28.267 2.165.57 2.926a6.934 6.934 0 001.645 2.506 6.934 6.934 0 002.506 1.645c.761.304 1.646.513 2.926.57 1.28.058 1.707.072 4.947.072s3.667-.014 4.947-.072c1.28-.058 2.165-.267 2.926-.57a6.934 6.934 0 002.506-1.645 6.934 6.934 0 001.645-2.506c.304-.761.513-1.646.57-2.926.058-1.28.072-1.707.072-4.947s-.014-3.667-.072-4.947c-.058-1.28-.267-2.165-.57-2.926a6.934 6.934 0 00-1.645-2.506 6.934 6.934 0 00-2.506-1.645c-.761-.304-1.646-.513-2.926-.57C15.667.014 15.24 0 12 0zM12 5.84A6.16 6.16 0 105.84 12 6.168 6.168 0 0012 5.84zm0 10.24A4.08 4.08 0 1116.08 12 4.083 4.083 0 0112 16.08zm6.406-10.815a1.44 1.44 0 11-1.44-1.44 1.442 1.442 0 011.44 1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-xl font-semibold">Quick Links</h2>
+            <ul class="mt-2 space-y-2">
+              <li><a href="#home" class="hover:underline">Home</a></li>
+              <li><a href="#about" class="hover:underline">About</a></li>
+              <li><a href="#menu" class="hover:underline">Menu</a></li>
+              <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold">Contact Info</h2>
+            <ul class="mt-2 space-y-2">
+              <li><strong>Phone:</strong> +666 999 777 0</li>
+              <li><strong>Email:</strong> info@restaurant.com</li>
+              <li><strong>Address:</strong> 123 Foodie Lane, Flavor Town</li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-6 pt-4 text-sm">
+          <p>&copy; 2023 Lammm Foodie. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="modal"
+      class="fixed modal-class inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden scroll-smooth"
+      style="z-index: 999"
+    >
+      <div
+        class="bg-white modal-class rounded-lg p-4 md:h-full lg:w-full lg:h-full w-full h-full relative"
+        style="max-height: 100%"
+      >
+        <span
+          id="close-modal"
+          class="absolute modal-class top-0 right-0 p-2 cursor-pointer text-black"
+          >&times;</span
+        >
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
