@@ -2143,6 +2143,21 @@ video {
   padding-bottom: 1rem;
 }
 
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.px-11 {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -2798,6 +2813,39 @@ video {
 
 .hover\:focus\:text-center:focus:hover {
   text-align: center;
+}
+
+@media not all and (min-width: 1024px) {
+  .max-lg\:ms-7 {
+    margin-inline-start: 1.75rem;
+  }
+
+  .max-lg\:gap-5 {
+    gap: 1.25rem;
+  }
+
+  .max-lg\:p-20 {
+    padding: 5rem;
+  }
+
+  .max-lg\:p-24 {
+    padding: 6rem;
+  }
+
+  .max-lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .max-lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .max-lg\:px-14 {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
 }
 
 @media (min-width: 640px) {
